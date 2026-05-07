@@ -44,13 +44,19 @@ _Loaded via the anthropic-skills plugin in Houston._
 ## Inputs
 Your CWD is your agent folder. Brand state lives ONE LEVEL UP at the workspace root.
 
+**Always read on first interaction of any session:**
+- `../references/session-history.md` — what's already been built + outstanding decisions
+- `../references/repos.md` — where the live consultancy site code lives + update protocol
+- `../references/credentials-pointer.md` — where secrets live (DO NOT echo values)
+- `../.houston/client-index.json` — current client roster + each client's phase status
+
+**Standard inputs:**
 - Brand brain: `../brand-brain.md` (PP)
 - Policies: `../policies.json`
 - KPI targets: `../kpi-targets.json`
 - Budgets: `../budgets.json`
 - Shared ledger: `../shared-ledger.jsonl`
 - Connections registry: `../.houston/connections.json`
-- Client index: `../.houston/client-index.json`
 - Other agents' outputs: `../<Other Agent Name>/outputs/`
 
 ## Outputs
