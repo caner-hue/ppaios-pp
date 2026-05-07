@@ -1,0 +1,68 @@
+[
+  {
+    "id": "mon-content-plan",
+    "name": "Monday content plan",
+    "description": "Monday content plan",
+    "prompt": "Plan the week: 3 LinkedIn posts (Caner profile) + 1 blog (purposefulprofits.co) + 1 case study draft (sourced from any PP-managed brand wins). Save plan to outputs/content-plan-{date}.md and Notion Content Calendar.",
+    "schedule": "0 10 * * 1",
+    "enabled": true,
+    "suppress_when_silent": false,
+    "created_at": "2026-05-07T15:30:00Z",
+    "updated_at": "2026-05-07T15:30:00Z"
+  },
+  {
+    "id": "tue-linkedin-1",
+    "name": "Tuesday LinkedIn post",
+    "description": "Tuesday LinkedIn post",
+    "prompt": "Author 1 LinkedIn post via /linkedin-post skill. Operator voice. Lead with proof. No engagement bait.",
+    "schedule": "0 9 * * 2",
+    "enabled": true,
+    "suppress_when_silent": true,
+    "created_at": "2026-05-07T15:30:00Z",
+    "updated_at": "2026-05-07T15:30:00Z"
+  },
+  {
+    "id": "thu-linkedin-2",
+    "name": "Thursday LinkedIn post",
+    "description": "Thursday LinkedIn post",
+    "prompt": "Author 1 LinkedIn post. Different theme from Tuesday.",
+    "schedule": "0 9 * * 4",
+    "enabled": true,
+    "suppress_when_silent": true,
+    "created_at": "2026-05-07T15:30:00Z",
+    "updated_at": "2026-05-07T15:30:00Z"
+  },
+  {
+    "id": "wed-blog",
+    "name": "Wednesday blog draft",
+    "description": "Wednesday blog draft",
+    "prompt": "Author 1 blog post for purposefulprofits.co via /blog-post skill. Draft only. Submit to Caner for live publish.",
+    "schedule": "0 14 * * 3",
+    "enabled": true,
+    "suppress_when_silent": true,
+    "created_at": "2026-05-07T15:30:00Z",
+    "updated_at": "2026-05-07T15:30:00Z"
+  },
+  {
+    "id": "fri-case-study",
+    "name": "Friday case study",
+    "description": "Friday case study",
+    "prompt": "One per fortnight: pick a documented win from any client workspace (read shared-ledger). Anonymise per privacy policy. Draft case study. Save to outputs/case-studies/.",
+    "schedule": "0 14 * * 5",
+    "enabled": true,
+    "suppress_when_silent": true,
+    "created_at": "2026-05-07T15:30:00Z",
+    "updated_at": "2026-05-07T15:30:00Z"
+  },
+  {
+    "id": "sun-content-recap-pp",
+    "name": "Sunday content recap",
+    "description": "Sunday content recap",
+    "prompt": "Drafts authored, posts published, LinkedIn impressions/engagement deltas. Append to weekly rollup.",
+    "schedule": "0 19 * * 0",
+    "enabled": true,
+    "suppress_when_silent": true,
+    "created_at": "2026-05-07T15:30:00Z",
+    "updated_at": "2026-05-07T15:30:00Z"
+  }
+]

@@ -1,0 +1,35 @@
+[
+  {
+    "id": "daily-wiki-update",
+    "name": "Daily wiki update",
+    "description": "Daily wiki update",
+    "prompt": "Scan for new outputs across PP + client workspaces in last 24h. Anything tagged win/case-study/framework/template gets summarised + linked into ../knowledge/wiki/. Run wiki-build at the end.",
+    "schedule": "30 18 * * *",
+    "enabled": true,
+    "suppress_when_silent": true,
+    "created_at": "2026-05-07T15:30:00Z",
+    "updated_at": "2026-05-07T15:30:00Z"
+  },
+  {
+    "id": "mon-case-study-scan",
+    "name": "Monday case study candidates",
+    "description": "Monday case study candidates",
+    "prompt": "Read each client's shared-ledger.jsonl for the past 7 days. Find any documented win (revenue lift, CVR jump, positive review velocity, etc). Draft a case study (anonymised). Save to ../outputs/case-studies/.",
+    "schedule": "0 13 * * 1",
+    "enabled": true,
+    "suppress_when_silent": false,
+    "created_at": "2026-05-07T15:30:00Z",
+    "updated_at": "2026-05-07T15:30:00Z"
+  },
+  {
+    "id": "sun-ip-audit",
+    "name": "Sunday IP audit",
+    "description": "Sunday IP audit",
+    "prompt": "Track which frameworks/templates were referenced in proposals + content this week. Identify gaps (frameworks mentioned but never documented). Surface in Director Mon review.",
+    "schedule": "0 19 * * 0",
+    "enabled": true,
+    "suppress_when_silent": true,
+    "created_at": "2026-05-07T15:30:00Z",
+    "updated_at": "2026-05-07T15:30:00Z"
+  }
+]

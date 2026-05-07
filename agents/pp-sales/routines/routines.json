@@ -1,0 +1,57 @@
+[
+  {
+    "id": "mon-prospect-list-pp",
+    "name": "Monday PP prospect list",
+    "description": "Monday PP prospect list",
+    "prompt": "Source 10 DTC founders matching PP ICP: ecommerce £500k-£5m revenue, growth-curious, UK or US. Use /skill sales:account-research + /skill cloudflare-crawl on their sites. Save to PP CRM with utm_source=ppaios-pp.",
+    "schedule": "0 9 * * 1",
+    "enabled": true,
+    "suppress_when_silent": false,
+    "created_at": "2026-05-07T15:30:00Z",
+    "updated_at": "2026-05-07T15:30:00Z"
+  },
+  {
+    "id": "daily-pp-outreach",
+    "name": "Daily PP outreach send",
+    "description": "Daily PP outreach send",
+    "prompt": "Send 10 outreach emails via Gmail (caner@purposefulprofits.co for warm referrals, out.purposefulprofits.co for cold once warm). Personalised per prospect. Run guardrail-check (≤50/day). Update PP CRM.",
+    "schedule": "0 10 * * 1-5",
+    "enabled": true,
+    "suppress_when_silent": true,
+    "created_at": "2026-05-07T15:30:00Z",
+    "updated_at": "2026-05-07T15:30:00Z"
+  },
+  {
+    "id": "daily-pp-replytriage",
+    "name": "Daily reply triage",
+    "description": "Daily reply triage",
+    "prompt": "Check Gmail for replies to outreach. Classify: positive (book discovery), neutral (nudge in 5 days), negative (closed-lost). Update PP CRM. Draft replies.",
+    "schedule": "0 16 * * *",
+    "enabled": true,
+    "suppress_when_silent": true,
+    "created_at": "2026-05-07T15:30:00Z",
+    "updated_at": "2026-05-07T15:30:00Z"
+  },
+  {
+    "id": "wed-proposal-drafts",
+    "name": "Wednesday proposal drafts",
+    "description": "Wednesday proposal drafts",
+    "prompt": "For any deal at stage=\"Demo done\", use /skill client-onboarding to generate a tailored proposal + SOW + invoice draft. Save to outputs/proposals/{prospect}-{date}.docx.",
+    "schedule": "0 14 * * 3",
+    "enabled": true,
+    "suppress_when_silent": false,
+    "created_at": "2026-05-07T15:30:00Z",
+    "updated_at": "2026-05-07T15:30:00Z"
+  },
+  {
+    "id": "sun-pipeline-report",
+    "name": "Sunday pipeline report",
+    "description": "Sunday pipeline report",
+    "prompt": "Run /skill sales:pipeline-review and /skill sales:forecast. Export pipeline stages + weighted forecast. iMessage Caner one-line top number.",
+    "schedule": "0 17 * * 0",
+    "enabled": true,
+    "suppress_when_silent": false,
+    "created_at": "2026-05-07T15:30:00Z",
+    "updated_at": "2026-05-07T15:30:00Z"
+  }
+]

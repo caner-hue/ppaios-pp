@@ -1,0 +1,46 @@
+[
+  {
+    "id": "daily-client-snapshot",
+    "name": "Daily per-client snapshot",
+    "description": "Daily per-client snapshot",
+    "prompt": "For each client in client-index.json with status=active, pull today's kpi-snapshot from their workspace. Append to outputs/clients/{brand}/daily.jsonl.",
+    "schedule": "0 18 * * *",
+    "enabled": true,
+    "suppress_when_silent": true,
+    "created_at": "2026-05-07T15:30:00Z",
+    "updated_at": "2026-05-07T15:30:00Z"
+  },
+  {
+    "id": "mon-client-reports",
+    "name": "Monday client weekly reports",
+    "description": "Monday client weekly reports",
+    "prompt": "Per active client, draft a weekly report: KPIs vs target, what shipped, what's stuck, recommendations. Save as outputs/clients/{brand}/weekly-{date}.md. iMessage Caner the list of drafts ready.",
+    "schedule": "0 11 * * 1",
+    "enabled": true,
+    "suppress_when_silent": false,
+    "created_at": "2026-05-07T15:30:00Z",
+    "updated_at": "2026-05-07T15:30:00Z"
+  },
+  {
+    "id": "wed-checkin-drafts",
+    "name": "Wednesday client check-in drafts",
+    "description": "Wednesday client check-in drafts",
+    "prompt": "Draft a brief check-in message per active client. Reference 1 specific win + 1 specific question. Save as Gmail drafts. Caner reviews + sends.",
+    "schedule": "0 15 * * 3",
+    "enabled": true,
+    "suppress_when_silent": true,
+    "created_at": "2026-05-07T15:30:00Z",
+    "updated_at": "2026-05-07T15:30:00Z"
+  },
+  {
+    "id": "fri-atrisk-flag",
+    "name": "Friday at-risk client flag",
+    "description": "Friday at-risk client flag",
+    "prompt": "Any client below KPI floor for 5+ consecutive days → P1 alert + iMessage Caner with proposed remediation.",
+    "schedule": "0 15 * * 5",
+    "enabled": true,
+    "suppress_when_silent": false,
+    "created_at": "2026-05-07T15:30:00Z",
+    "updated_at": "2026-05-07T15:30:00Z"
+  }
+]

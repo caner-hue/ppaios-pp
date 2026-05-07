@@ -1,0 +1,11 @@
+{
+  "brand": "pp",
+  "inherits": "ppaios/references/policies.md",
+  "overrides": {
+    "customer_facing_send": "drafts_only_first_60_days",
+    "invoice_send": "always_caner_approves",
+    "proposal_send": "always_caner_approves",
+    "linkedin_publish": "always_caner_approves",
+    "cross_workspace_read": "pp_director_only"
+  }
+}

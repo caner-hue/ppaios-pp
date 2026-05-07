@@ -1,0 +1,82 @@
+{
+  "brand": "pp",
+  "auth_strategy": "hybrid",
+  "notes": "PP uses Composio for agent-facing tools. PP-direct surfaces (Stripe, PP CRM) live in .env.",
+  "via_composio": [
+    {
+      "name": "github",
+      "status": "wired",
+      "agent_use": [
+        "pp-director",
+        "pp-operations"
+      ]
+    },
+    {
+      "name": "gmail",
+      "status": "wired",
+      "agent_use": [
+        "pp-director",
+        "pp-sales",
+        "pp-account-manager",
+        "pp-content",
+        "pp-finance"
+      ]
+    },
+    {
+      "name": "google-calendar",
+      "status": "wired",
+      "agent_use": [
+        "pp-sales",
+        "pp-account-manager",
+        "pp-director"
+      ]
+    },
+    {
+      "name": "google-drive",
+      "status": "wired",
+      "agent_use": [
+        "pp-content",
+        "pp-knowledge-curator",
+        "pp-finance"
+      ]
+    },
+    {
+      "name": "notion",
+      "status": "wired",
+      "agent_use": [
+        "pp-director",
+        "pp-sales",
+        "pp-content",
+        "pp-account-manager",
+        "pp-operations",
+        "pp-knowledge-curator"
+      ]
+    },
+    {
+      "name": "stripe",
+      "status": "wired",
+      "agent_use": [
+        "pp-finance",
+        "pp-director"
+      ]
+    }
+  ],
+  "via_api_direct": [
+    {
+      "name": "pp-crm",
+      "url": "https://pp-crm-psi.vercel.app",
+      "endpoint": "/api/contacts",
+      "env": [
+        "PP_CRM_CRON_SECRET"
+      ]
+    }
+  ],
+  "cross_workspace_reads": [
+    {
+      "workspace": "PPAIOS — KIND2",
+      "who": "pp-director,pp-account-manager,pp-knowledge-curator",
+      "mode": "read-only"
+    }
+  ],
+  "kill_switch_path": "$HOME/.dev-houston/KILL_SWITCH"
+}

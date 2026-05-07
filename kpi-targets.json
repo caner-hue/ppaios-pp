@@ -1,0 +1,30 @@
+{
+  "brand": "pp",
+  "currency": "GBP",
+  "targets": {
+    "monthly_retainer_revenue_gbp": {
+      "target": 15000,
+      "floor": 8000
+    },
+    "sprint_revenue_per_quarter_gbp": {
+      "target": 30000,
+      "floor": 15000
+    },
+    "pipeline_value_gbp": {
+      "target": 60000,
+      "floor": 30000
+    },
+    "discovery_calls_per_week": {
+      "target": 5,
+      "floor": 3
+    },
+    "proposal_close_rate_pct": {
+      "target": 30,
+      "floor": 15
+    },
+    "linkedin_engagement_per_week": {
+      "target": 200,
+      "floor": 80
+    }
+  }
+}

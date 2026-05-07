@@ -1,0 +1,8 @@
+{
+  "brand": "pp",
+  "currency": "GBP",
+  "pp_marketing_spend_daily_cap": 5,
+  "outreach_emails_per_day_per_sender": 50,
+  "proposal_discount_max_pct": 0,
+  "retainer_floor_gbp_per_month": 3000
+}

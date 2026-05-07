@@ -1,0 +1,46 @@
+[
+  {
+    "id": "daily-stripe-snapshot",
+    "name": "Daily Stripe revenue snapshot",
+    "description": "Daily Stripe revenue snapshot",
+    "prompt": "Pull today's Stripe charges, refunds, balance. Compute consultancy revenue. Save to outputs/daily/{date}.json.",
+    "schedule": "30 17 * * *",
+    "enabled": true,
+    "suppress_when_silent": true,
+    "created_at": "2026-05-07T15:30:00Z",
+    "updated_at": "2026-05-07T15:30:00Z"
+  },
+  {
+    "id": "mon-pp-pnl",
+    "name": "Monday PP P&L",
+    "description": "Monday PP P&L",
+    "prompt": "Past 7 days: retainer revenue, sprint revenue, course/template revenue, ad spend (PP-side, not client-side), contribution margin. Output to outputs/weekly-pnl-{date}.md.",
+    "schedule": "0 9 * * 1",
+    "enabled": true,
+    "suppress_when_silent": false,
+    "created_at": "2026-05-07T15:30:00Z",
+    "updated_at": "2026-05-07T15:30:00Z"
+  },
+  {
+    "id": "first-of-month-invoices",
+    "name": "1st of month invoice batch",
+    "description": "1st of month invoice batch",
+    "prompt": "For each retainer client, draft an invoice via /skill docx + Stripe Composio. Save as Gmail draft for Caner approval. Never auto-send.",
+    "schedule": "0 9 1 * *",
+    "enabled": true,
+    "suppress_when_silent": false,
+    "created_at": "2026-05-07T15:30:00Z",
+    "updated_at": "2026-05-07T15:30:00Z"
+  },
+  {
+    "id": "monthly-close-pp",
+    "name": "Monthly close PP",
+    "description": "Monthly close PP",
+    "prompt": "Last day of month only: monthly P&L for PP. Track against PP-side £15k MRR target (or whatever target is set). Email Caner.",
+    "schedule": "0 18 28-31 * *",
+    "enabled": true,
+    "suppress_when_silent": false,
+    "created_at": "2026-05-07T15:30:00Z",
+    "updated_at": "2026-05-07T15:30:00Z"
+  }
+]

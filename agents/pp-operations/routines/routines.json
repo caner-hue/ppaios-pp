@@ -1,0 +1,35 @@
+[
+  {
+    "id": "daily-task-board-health",
+    "name": "Daily task board health",
+    "description": "Daily task board health",
+    "prompt": "Pull Notion Tasks DB. Flag any task >7 days in \"In progress\" or \"Pending\". Surface stale tasks to Director Mon review.",
+    "schedule": "0 8 * * *",
+    "enabled": true,
+    "suppress_when_silent": true,
+    "created_at": "2026-05-07T15:30:00Z",
+    "updated_at": "2026-05-07T15:30:00Z"
+  },
+  {
+    "id": "wed-runbook-review",
+    "name": "Wednesday runbook review",
+    "description": "Wednesday runbook review",
+    "prompt": "For any process executed >3x in the last week (read shared-ledger.jsonl across all PP workspaces), check if a runbook exists in /references/runbooks/. If not, draft one.",
+    "schedule": "0 11 * * 3",
+    "enabled": true,
+    "suppress_when_silent": true,
+    "created_at": "2026-05-07T15:30:00Z",
+    "updated_at": "2026-05-07T15:30:00Z"
+  },
+  {
+    "id": "sun-ops-digest",
+    "name": "Sunday operations digest",
+    "description": "Sunday operations digest",
+    "prompt": "Weekly summary: tasks completed, runbooks added, contractor invoices processed, tooling issues. Append to weekly rollup.",
+    "schedule": "0 17 * * 0",
+    "enabled": true,
+    "suppress_when_silent": true,
+    "created_at": "2026-05-07T15:30:00Z",
+    "updated_at": "2026-05-07T15:30:00Z"
+  }
+]

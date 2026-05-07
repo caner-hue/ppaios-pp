@@ -1,0 +1,13 @@
+{
+  "name": "PPAIOS — PP",
+  "description": "Purposeful Profits consultancy operations workspace. PP Director orchestrates across PP-managed client brand workspaces (KIND2, etc). Owns sales pipeline, content, account management, finance, ops, and knowledge curation for PP itself.",
+  "agents": [
+    "pp-director",
+    "pp-sales",
+    "pp-content",
+    "pp-account-manager",
+    "pp-finance",
+    "pp-operations",
+    "pp-knowledge-curator"
+  ]
+}

@@ -1,0 +1,57 @@
+[
+  {
+    "id": "mon-allclients-review",
+    "name": "Monday all-clients weekly review",
+    "description": "Monday all-clients weekly review",
+    "prompt": "Read client-index.json. For each active client workspace under ~/.houston/workspaces/, pull last 7 days of outputs.json + shared-ledger.jsonl + kpi-snapshots/. Compose a per-client section + a PP-wide rollup. Email Caner. iMessage one-line summary.",
+    "schedule": "0 9 * * 1",
+    "enabled": true,
+    "suppress_when_silent": false,
+    "created_at": "2026-05-07T15:30:00Z",
+    "updated_at": "2026-05-07T15:30:00Z"
+  },
+  {
+    "id": "daily-caner-brief-pp",
+    "name": "Daily Caner morning brief (PP)",
+    "description": "Daily Caner morning brief (PP)",
+    "prompt": "Read overnight PP outputs (sales pipeline movement, content drafts ready, client at-risk flags). Compose 3 wins / 3 risks / 3 recommended actions. iMessage Caner.",
+    "schedule": "30 7 * * *",
+    "enabled": true,
+    "suppress_when_silent": false,
+    "created_at": "2026-05-07T15:30:00Z",
+    "updated_at": "2026-05-07T15:30:00Z"
+  },
+  {
+    "id": "daily-allworkspaces-alerts",
+    "name": "Daily alerts sweep across ALL workspaces",
+    "description": "Daily alerts sweep across ALL workspaces",
+    "prompt": "Iterate ~/.houston/workspaces/*/alerts.jsonl. For any P1 opened in last 24h not yet acked, iMessage Caner with brand + alert + proposed action. Append sweep to ../shared-ledger.jsonl.",
+    "schedule": "30 9 * * *",
+    "enabled": true,
+    "suppress_when_silent": true,
+    "created_at": "2026-05-07T15:30:00Z",
+    "updated_at": "2026-05-07T15:30:00Z"
+  },
+  {
+    "id": "fri-pp-audit",
+    "name": "Friday PP audit + level-up",
+    "description": "Friday PP audit + level-up",
+    "prompt": "Run audit skill across PP workspace + every active client workspace. Run level-up on the top gap PP-side (sales, content, ops, finance). iMessage Caner.",
+    "schedule": "30 17 * * 5",
+    "enabled": true,
+    "suppress_when_silent": false,
+    "created_at": "2026-05-07T15:30:00Z",
+    "updated_at": "2026-05-07T15:30:00Z"
+  },
+  {
+    "id": "mon-newclient-onboarding-check",
+    "name": "Monday onboarding pipeline check",
+    "description": "Monday onboarding pipeline check",
+    "prompt": "Use /skill client-onboarding. Read PP CRM (pp-crm-psi.vercel.app/contacts) for any deals in \"Closed-won\" not yet onboarded. Propose: spin up new PPAIOS workspace, run kickoff routine, generate proposal SOW.",
+    "schedule": "0 10 * * 1",
+    "enabled": true,
+    "suppress_when_silent": false,
+    "created_at": "2026-05-07T15:30:00Z",
+    "updated_at": "2026-05-07T15:30:00Z"
+  }
+]

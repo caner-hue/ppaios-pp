@@ -1,0 +1,14 @@
+{
+  "self": "PPAIOS — PP",
+  "notes": "PP Director reads each listed workspace's outputs/ + shared-ledger.jsonl when running cross-brand rollups. Brand-side agents do NOT read PP workspace.",
+  "clients": [
+    {
+      "id": "kind2",
+      "workspace": "PPAIOS — KIND2",
+      "status": "active",
+      "tier": "owned",
+      "started": "2026-05-06",
+      "target": "KIND2 £1.5k → £15k MRR in 90 days"
+    }
+  ]
+}
