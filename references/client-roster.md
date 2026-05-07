@@ -12,14 +12,55 @@
 
 ## Cross-cutting facts (PP-side defaults)
 
-- **Default sprint price:** £500/month per client (per `notion://MRR-Baseline`) ✅
-- **Aggregate MRR baseline:** ~£8.5k from ~17 clients (per `notion://MRR-Baseline`) ✅
-- **Phase 1 MRR target:** £11k by end of Offer sprint ✅
+### Invoicing infrastructure ✅ (canonical from `pp-weekly-invoicing` scheduled task)
+
+- **Schedule:** every Monday 08:08 (cron `0 8 * * 1`)
+- **Generator:** `Purposeful Profits Growth Agency/invoicing/generate_invoices.py` (Playwright PDF)
+- **State file:** `invoicing/invoice_state.json` — tracks `last` invoice number, per-client `instalments` counter, `sent_invoices` keyed by `INV-XXXX`
+- **Drive folder:** PDFs uploaded to `1FRRINGwzlGmHOfXYY_0OPFqelZgWLOW1`
+- **Notion Invoices DB:** `30d3b48f-f9de-4ca4-9038-95b108c1ea44` (data source)
+- **Notion Clients DB:** `fd7e9a0b-2e6e-47e6-9ac5-29d7324ec611`
+- **Payment statuses:** Draft, Sent, Paid, Overdue, Disputed
+- **Reminders:** auto-drafted for overdue invoices (until `payment_status="paid"` flipped in `invoice_state.json`)
+- **No VAT** on any invoice (final amounts as quoted)
+
+### Banking
+
+| Currency | Bank | Sort/IBAN | Account |
+|---|---|---|---|
+| GBP | Revolut | 23-01-20 | 12300692 |
+| CAD (Niyama, Younited) | Revolut | IBAN GB15 REVO 0099 6924 0983 73, BIC REVOGB21 | — |
+
+**Account name:** PURPOSEFUL PROFITS LTD
+
+### Client billing — registered names + addresses (canonical)
+
+| Client | Registered Name | Address | Billing Email |
+|---|---|---|---|
+| 7th Heaven | Montagne Jeunesse (International) Ltd | Astral Court, Central Avenue, Baglan Energy Park, Port Talbot, SA12 7AX | accountspayable@montagnejeunesse.com |
+| Vertical Brands | Vertical Brands Ltd | 22 Wenlock Road, London N1 7GU | Aran@verticalbrands.co |
+| Long Paws | Long Paws | TBC | elan@longpaws.co.uk |
+| Youth and Earth | Empower3d Ltd | Huckletree West, Mediaworks, 191 Wood Lane, London W12 7FP | leyla@youthandearth.com |
+| Younited | Younited Nutrition with Purpose | 5858 Fourth Line, Hillsburgh, ON, N0B 1Z0, Canada | renzo@younitedwellness.ca |
+| Niyama | (uses CAD bank — registered name TBC ❓) | TBC ❓ | TBC ❓ (likely jillian@niyama-wellness.ca) |
+
+### Sprint pricing
+
+- **Default sprint price:** £500/month per client baseline (per `notion://MRR-Baseline`)
+- **Aggregate MRR baseline:** ~£8.5k from ~17 clients
+- **Phase 1 MRR target:** £11k by end of Offer sprint
 - **Sprint phases (in order):** Offer → CRO → Affiliates/UGC → Ads
-- **Bank for invoicing:** Revolut, sort 23-01-20, account name PURPOSEFUL PROFITS LTD (per gmail invoice INV-2650, £3,250 due 28 Apr 2026)
-- **Invoicing tool:** drafted manually + emailed PDF; PP CRM Supabase tracks `client_events` not `invoices` yet
-- **Public client portal pattern:** `purposefulprofits.co/{client-slug}-contract` and `/{client-slug}-invoice`
-- **Account manager:** Caner across all clients today
+- **Last known live invoice:** **INV-2650, £3,250** (Leyla / Empower3d / Youth & Earth, due 28 Apr 2026 — clearly above the £500 baseline, so Y&E is on a higher-tier retainer)
+- **Instalment auto-tracking:** counters per client live in `invoice_state.json`. Recent state showed `Younited Wellness: 2`, `Youth and Earth (Empower3d Ltd): 1`. Counter resets to 1 after reaching `instalment_total`.
+
+### Public portals
+
+- Pattern: `purposefulprofits.co/{client-slug}-contract` and `/{client-slug}-invoice`
+- Confirmed: 7th Heaven contract + invoice URLs
+
+### Account manager
+
+- Caner across all clients today
 
 ---
 
@@ -45,15 +86,17 @@
 
 - **Status:** active ✅ (paid media currently running)
 - **Tier:** retainer + paid media management
-- **Started:** existing engagement (Notion page created 2026-04-13) — onboarded earlier
-- **Scope:** Paid media management (Meta primary). Status calls regular ("Youth & Earth x Growthcurve | Status Call" cadence)
-- **Invoicing:** Recurring; specific fee TBC ❓
-- **Stakeholders:**
-  - Client: Leyla, Matthew S
-  - Office: Huckletree West, Mediaworks, 191 Wood Lane, London W12 7FP
-  - Last invoice on file: **INV-2650, £3,250, due 28 Apr 2026** (gmail) ✅
+- **Registered billing entity:** **Empower3d Ltd** ✅
+- **Billing address:** Huckletree West, Mediaworks, 191 Wood Lane, London W12 7FP ✅
+- **Billing email:** **leyla@youthandearth.com** ✅
+- **Started:** existing engagement (Notion page created 2026-04-13)
+- **Scope:** Paid media management (Meta primary). Regular status calls ("Youth & Earth x Growthcurve | Status Call")
+- **Invoicing:**
+  - Last invoice: **INV-2650, £3,250, due 28 Apr 2026** ✅
+  - Tracked under instalment counter "Youth and Earth (Empower3d Ltd)" in `invoice_state.json`
+- **Stakeholders:** Leyla (primary), Matthew S
 - **Tools:**
-  - Meta Ad Account: `10153865868170051` ✅ (per `crm://youth-and-earth` 2026-05-06)
+  - Meta Ad Account: `10153865868170051` ✅
   - Y&E private API key file in Drive (`Y&E_private-api-key.txt`)
 - **Recent activity** (per `crm://`):
   - 2026-05-06: Meta billed £1,550 for 2-6 May window
@@ -67,6 +110,9 @@
 
 - **Status:** active ✅ — currently in **Sprint 2 (Paid Social & PPC)**, transitioning into Sprint 3 (Affiliates & UGC)
 - **Tier:** sprint retainer (multi-sprint)
+- **Registered billing entity:** **Montagne Jeunesse (International) Ltd** ✅
+- **Billing address:** Astral Court, Central Avenue, Baglan Energy Park, Port Talbot, SA12 7AX ✅
+- **Billing email:** **accountspayable@montagnejeunesse.com** ✅
 - **SOW reference:** **SOW-7TH-2604** ✅
 - **Onboarding:** 2026-02-10 (per `notion://Onboarding & Assets`)
 - **Sprints completed/in-flight:**
@@ -89,18 +135,20 @@
 
 ---
 
-## 4. Vertical Brands (FaceGym engagement)
+## 4. Vertical Brands (FaceGym engagement) ✅
 
-- **Status:** active 🟡 (data thin in PP system today)
-- **Tier:** commission
-- **Scope:** FaceGym email marketing strategy delivery (per Drive: `FINAL_FACEGYM - Email Marketing Strategy - Vertical Brands.key`)
-- **Invoicing:** Commission only ❓ %
-- **Stakeholders:** TBC ❓
-- **Tools:** TBC ❓
+- **Status:** active ✅
+- **Tier:** commission / monthly retainer (FaceGym sub-engagement billed monthly per the invoicing skill)
+- **Registered billing entity:** **Vertical Brands Ltd** ✅
+- **Billing address:** 22 Wenlock Road, London N1 7GU ✅
+- **Billing email:** **Aran@verticalbrands.co** ✅
+- **Stakeholders:** Aran (primary contact at Vertical Brands)
+- **Scope:** FaceGym email marketing strategy delivery (per Drive: `FINAL_FACEGYM - Email Marketing Strategy - Vertical Brands.key`). Invoice line uses `FaceGym | <Month YYYY>` per skill rendering rules.
+- **Invoicing:** Monthly invoice via the same `pp-weekly-invoicing` task (period field = `FaceGym | <Month YYYY>`) ✅
+- **Tools:** Klaviyo (assumed, per email strategy doc)
 - **Open questions:**
-  - Commission % and trigger (revenue lift? campaign performance fee?)
-  - Reporting cadence to Vertical Brands?
-  - PP-side lead?
+  - Specific monthly fee amount ❓
+  - End date of FaceGym engagement ❓
 
 ---
 
@@ -108,16 +156,18 @@
 
 - **Status:** active ✅ — TTS sprint kicked off 2026-05-06
 - **Tier:** sprint (TTS = TikTok Shop launch)
-- **Scope:** TikTok Shop setup + samples + commission structure for TTS launch
+- **Registered billing entity:** **Long Paws** ✅ (registered address TBC ❓)
+- **Billing email:** **elan@longpaws.co.uk** ✅
 - **Stakeholders:**
-  - Client: **Elan Mansur** (`elan@longpaws.co.uk`) ✅
-  - Intro/finder: **Raphael Patterson** (`raphaelpatterson6@gmail.com`) — intro invoice received 5 May 2026 due this week ✅
+  - Client: **Elan Mansur** (elan@longpaws.co.uk) ✅
+  - Intro/finder: **Raphael Patterson** (raphaelpatterson6@gmail.com) — intro invoice received 5 May 2026 due this week ✅
+- **Scope:** TikTok Shop setup + samples + commission structure for TTS launch
 - **Tools:** TikTok Shop (linkup ready per gmail 2026-05-06)
 - **Recent activity** (per `crm://long-paws` 2026-05-06):
   - TTS kickoff call held 2026-05-06 with Elan
-  - Covered: TTS access, commission structure, samples
   - Intro invoice from Raphael received 5 May
 - **Next steps:** pay Raphael intro invoice, confirm TTS shop access, send sample brief
+- **Open question:** Long Paws registered address ❓
 - **Links:** [`notion://Long Paws`](https://www.notion.so/33623a47bdd98139bd2ec165ea5efe07)
 
 ---
@@ -146,15 +196,22 @@
 ## 7. Younited Wellness ✅
 
 - **Status:** active ✅ — Sprint 1 (Offer) Week 4 (due 17 May 2026)
-- **Tier:** sprint retainer
+- **Tier:** sprint retainer (paid in CAD)
+- **Registered billing entity:** **Younited Nutrition with Purpose** ✅
+- **Billing address:** 5858 Fourth Line, Hillsburgh, ON, N0B 1Z0, Canada ✅
+- **Billing email:** **renzo@younitedwellness.ca** ✅
+- **Currency:** CAD (paid via Revolut IBAN GB15 REVO 0099 6924 0983 73)
+- **Notion client page:** https://www.notion.so/34123a47bdd981629e5df3742e939b00 ✅ (linked in invoicing skill)
+- **Instalment counter (per `invoice_state.json`):** Younited Wellness = 2 ✅
 - **Sprint timeline:** Sprint 1 Offer → Sprint 4 Ads (handover brief on file)
-- **Scope:** Offer sprint completing; Sprint 4 Ads setup brief authored — audience segments, site performance context from Sprints 1-2, Sprint 4 access requirements
+- **Scope:** Offer sprint completing; Sprint 4 Ads setup brief authored
 - **Stakeholders:**
-  - Founder: **Jillian Mariani** (`jillian@niyama-wellness.ca`) — also runs Niyama (same founder, two brands) ✅
+  - Billing: **Renzo** (renzo@younitedwellness.ca) ✅
+  - Brand strategy: **Jillian Mariani** (jillian@niyama-wellness.ca) — also runs Niyama (same founder, two brands)
   - Mobile: 416 918 5696
-  - Production: April (creative — brand video vertical/horizontal in flight; Niyama site mint-colour tweak request 2026-05)
-- **Tools:** New Younited site in build (per gmail 2026-05-06: "horizontal video will be fantastic for when the new Younited website is ready")
-- **Links:** [`notion://Younited Sprint Retrospective`](https://www.notion.so/34123a47bdd981fd8c70e0a81a872fdd), [`notion://Sprint 4 Ads Handover`](https://www.notion.so/34a23a47bdd9816c9ebcf8875f90f580)
+  - Production: April (creative — brand video vertical/horizontal in flight)
+- **Tools:** New Younited site in build (per gmail 2026-05-06)
+- **Links:** [`notion://Younited Sprint Retrospective`](https://www.notion.so/34123a47bdd981fd8c70e0a81a872fdd), [`notion://Sprint 4 Ads Handover`](https://www.notion.so/34a23a47bdd9816c9ebcf8875f90f580), [`notion://Younited client page`](https://www.notion.so/34123a47bdd981629e5df3742e939b00)
 
 ---
 
