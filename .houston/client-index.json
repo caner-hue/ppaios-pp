@@ -1,14 +1,35 @@
 {
   "self": "PPAIOS — PP",
-  "notes": "PP Director reads each listed workspace's outputs/ + shared-ledger.jsonl when running cross-brand rollups. Brand-side agents do NOT read PP workspace.",
+  "notes": "PP Director / Account Manager / Knowledge Curator read each listed workspace's outputs/ + shared-ledger.jsonl + alerts.jsonl + kpi-snapshots/. Brand-side agents do NOT read PP workspace.",
+  "consultancy_site": {
+    "live_url": "https://purposefulprofits.co",
+    "repo": "caner-hue/purposeful-profits",
+    "local_clone": "~/Documents/Kind Co Marketing/purposefulprofits.co",
+    "vercel_project": "purposefulprofits",
+    "stack": "Next.js + Vercel + Prisma",
+    "update_protocol": "PP Content drafts → PP Operations branches + PRs → Caner merges → Vercel auto-deploys. Never commit to main directly."
+  },
+  "pp_crm": {
+    "live_url": "https://pp-crm-psi.vercel.app",
+    "repo": "caner-hue/pp-crm",
+    "supabase_project_ref": "walaabqjmhbvsltmkvmq",
+    "tables": ["contacts", "email_templates", "email_sequences", "email_events"],
+    "endpoints": {
+      "lead_form": "https://pp-crm-psi.vercel.app/",
+      "contacts_dashboard": "https://pp-crm-psi.vercel.app/contacts",
+      "api_contacts": "POST https://pp-crm-psi.vercel.app/api/contacts"
+    },
+    "sync_direction": "notion_master_supabase_mirror",
+    "sync_routine": "PP Account Manager runs crm-sync skill daily at 11:30."
+  },
   "clients": [
-    {
-      "id": "kind2",
-      "workspace": "PPAIOS — KIND2",
-      "status": "active",
-      "tier": "owned",
-      "started": "2026-05-06",
-      "target": "KIND2 £1.5k → £15k MRR in 90 days"
-    }
+    { "id": "kind2", "workspace": "PPAIOS — KIND2", "repo": "caner-hue/ppaios-kind2", "status": "active", "tier": "owned", "started": "2026-05-06", "target": "KIND2 £1.5k → £15k MRR in 90 days", "growth_plan_doc": "caner-hue/ppaios/GROWTH-PLAN-KIND2-10X.md", "agents_count": 17 },
+    { "id": "youth-and-earth", "workspace": "PPAIOS — Youth & Earth", "repo": "caner-hue/ppaios-youth-and-earth", "status": "active", "tier": "sprint", "started": "2026-05-07", "target": "Sprint deliverables — TBC. Default: 30-day growth audit + email + content uplift.", "agents_count": 6, "drive_assets": ["Y&E_private-api-key.txt"], "notes": "Anti-ageing supplement DTC." },
+    { "id": "7th-heaven", "workspace": "PPAIOS — 7th Heaven", "repo": "caner-hue/ppaios-7th-heaven", "status": "active", "tier": "sprint", "started": "2026-05-07", "target": "Sprint scope defined in 7th-heaven-growth-plan.html.", "agents_count": 6, "drive_assets": ["7th-heaven-growth-plan.html", "7th-heaven-dashboard.html"], "notes": "Sheet-mask brand (Boots/Superdrug retail focus)." },
+    { "id": "vertical-brands", "workspace": "PPAIOS — Vertical Brands", "repo": "caner-hue/ppaios-vertical-brands", "status": "active", "tier": "commission", "started": "2026-05-07", "target": "Deliverable: FaceGym email strategy. Commission paid on results.", "agents_count": 3, "drive_assets": ["FINAL_FACEGYM - Email Marketing Strategy - Vertical Brands.key"], "notes": "FaceGym engagement. Commission-only — no PP retainer fee." },
+    { "id": "long-paws", "workspace": "PPAIOS — Long Paws", "repo": "caner-hue/ppaios-long-paws", "status": "active", "tier": "sprint", "started": "2026-05-07", "target": "TTS sprint — TBC scope.", "agents_count": 6, "drive_assets": ["long-paws/", "long-paws-growth-sprint.html"], "notes": "Pet brand." },
+    { "id": "pingfluence", "workspace": "PPAIOS — Pingfluence", "repo": "caner-hue/ppaios-pingfluence", "status": "active", "tier": "sprint", "started": "2026-05-07", "target": "5-email nurture sequence + creator playbook + outreach.", "agents_count": 6, "drive_assets": ["Pingfluence-5-Email-Brand-Nurture-Sequence.docx", "Pingfluence-Hospitality-Creator-Playbook-2026.docx", "pingfluence-growth-audit-report.html", "pingfluence-roi-calculator.html"], "notes": "Hospitality creator-marketing tool." },
+    { "id": "younited", "workspace": "PPAIOS — Younited", "repo": "caner-hue/ppaios-younited", "status": "active", "tier": "sprint", "started": "2026-05-07", "target": "Sprint scope TBC.", "agents_count": 6, "drive_assets": [], "notes": "Caner to brief on first Director run." },
+    { "id": "niyama", "workspace": "PPAIOS — Niyama", "repo": "caner-hue/ppaios-niyama", "status": "active", "tier": "sprint", "started": "2026-05-07", "target": "AI-driven SEO content engine.", "agents_count": 6, "drive_assets": ["AiSEONiyama 2.txt", "AiSEONiyama.txt"], "notes": "Wellness brand." }
   ]
 }

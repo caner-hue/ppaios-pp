@@ -42,5 +42,16 @@
     "suppress_when_silent": false,
     "created_at": "2026-05-07T15:30:00Z",
     "updated_at": "2026-05-07T15:30:00Z"
+  },
+  {
+    "id": "daily-crm-sync",
+    "name": "Daily Notion → Supabase CRM sync",
+    "description": "Push Notion Clients DB rows into PP CRM (Supabase contacts) so the public form receiver + email engine stays aligned with PP agent decisions. One-way: Notion is master.",
+    "prompt": "Run the crm-sync skill. Pull yesterday-or-newer rows from Notion Clients DB. Upsert into Supabase contacts via POST https://pp-crm-psi.vercel.app/api/contacts (tag with utm_source=ppaios-notion-sync). Also read any new contacts from Supabase that came in via the live form (notion_page_id IS NULL) and surface them to PP Sales for triage. Append outputs.json with rows synced.",
+    "schedule": "30 11 * * *",
+    "enabled": true,
+    "suppress_when_silent": true,
+    "created_at": "2026-05-07T17:00:00Z",
+    "updated_at": "2026-05-07T17:00:00Z"
   }
 ]
