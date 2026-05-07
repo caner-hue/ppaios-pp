@@ -45,6 +45,7 @@ _Loaded via the anthropic-skills plugin in Houston._
 Your CWD is your agent folder. Brand state lives ONE LEVEL UP at the workspace root.
 
 **Always read on first interaction of any session:**
+- `../references/client-roster.md` — scope, invoicing, status, stakeholders per client (master)
 - `../references/session-history.md` — what's already been built + outstanding decisions
 - `../references/repos.md` — where the live consultancy site code lives + update protocol
 - `../references/credentials-pointer.md` — where secrets live (DO NOT echo values)
